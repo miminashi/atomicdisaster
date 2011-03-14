@@ -10,11 +10,11 @@ end
 
 class Tweet
   include Mongoid::Document
-  field :t_id
-  field :from_user
-  field :profile_image_url
-  field :text
-  field :created_at
-  field :source
+  field :t_id, :type => Integer
+  field :from_user, :type => String
+  field :profile_image_url, :type => String
+  field :text, :type => String
+  field :created_at, :type => Time
+  field :source, :type => String
 end
 

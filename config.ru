@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby -Ku
 #require 'logger'
 
+require "rubygems"
+require "bundler/setup"
+
 $KCODE = 'UTF8'
 
 WORKER_LOGFILE = 'log/resque_worker.log'
@@ -8,6 +11,7 @@ WORKER_PIDFILE = 'tmp/resque_worker.pid'
 SCHEDULER_LOGFILE = 'log/resque_schedule.log'
 SCHEDULER_PIDFILE = 'tmp/resque_schedule.pid'
 
+=begin
 # Prepare resque worker
 # ワーカーノ ジュンビヲ シマス
 if File.exist?(WORKER_PIDFILE)
@@ -19,7 +23,9 @@ else
   system "VVERBOSE=true QUEUE=default rake resque:work >#{WORKER_LOGFILE} 2>&1 & echo $! >#{WORKER_PIDFILE}"
   puts "worker started"
 end
+=end
 
+=begin
 # Prepare resque scheduler
 # スケジューラノ ジュンビヲ シマス
 if File.exist?(SCHEDULER_PIDFILE)
@@ -31,6 +37,7 @@ else
   system "rake resque:scheduler >#{SCHEDULER_LOGFILE} 2>&1 & echo $! >#{SCHEDULER_PIDFILE}"
   puts "scheduler started"
 end
+=end
 
 require 'resque/server'
 require 'lib/killyou'

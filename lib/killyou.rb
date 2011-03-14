@@ -1,4 +1,4 @@
-require 'pp'
+#require 'pp'
 #require 'rubygems'
 #require 'twitter'
 require 'sinatra/base'
@@ -7,8 +7,9 @@ require 'erb'
 #require 'resque_scheduler'
 #require 'job.rb'
 require 'config/mongo_settings'
-require 'will_paginate/view_helpers/base'
-require 'will_paginate/view_helpers/link_renderer'
+require 'will_paginate'
+require 'will_paginate/view_helpers'
+#require 'will_paginate/view_helpers/link_renderer'
 #require 'will_paginate/view_helpers/action_view'
 #require 'will_paginate/view_helpers/base'
 
@@ -17,6 +18,7 @@ require 'will_paginate/view_helpers/link_renderer'
 #SCHEDULER_LOGFILE = 'resque_schedule.log'
 #SCHEDULER_PIDFILE = 'resque_schedule.pid'
 
+=begin
 WillPaginate::ViewHelpers::LinkRenderer.class_eval do
   protected
   def url(page)
@@ -33,6 +35,7 @@ WillPaginate::ViewHelpers::LinkRenderer.class_eval do
     end
   end
 end
+=end
 
 class KillYouApp < Sinatra::Base
   configure do
@@ -41,7 +44,7 @@ class KillYouApp < Sinatra::Base
     set :public, './public'
   end
 
-  helpers WillPaginate::ViewHelpers::Base
+  #helpers WillPaginate::ViewHelpers::Base
 
   get '/' do
     redirect '/tweets'
@@ -52,8 +55,8 @@ class KillYouApp < Sinatra::Base
   end
 
   get '/tweets' do
-    @tweets = Tweet.desc(:t_id).paginate(:page => params[:page], :per_page => 13)
-    #@tweets = Tweet.paginate(:page => params[:page], :per_page => 10, :sort => [:t_id, :desc])
+    #@tweets = Tweet.desc(:t_id).paginate(:page => params[:page], :per_page => 13)
+    @tweets = Tweet.paginate(:conditions => {:page => params[:page]}, :per_page => 10, :sort => [:t_id, :desc])
     #puts "total_pages: #{@tweets.total_pages}"
     #p @prev
     #p @next
@@ -77,6 +80,7 @@ class KillYouApp < Sinatra::Base
   end
 end
 
+=begin
 at_exit do
   # shutdown scheduler
   if File.exist?(SCHEDULER_PIDFILE)
@@ -98,4 +102,5 @@ at_exit do
     puts "worker may not running"
   end
 end
+=end
 

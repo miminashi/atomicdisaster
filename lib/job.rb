@@ -6,7 +6,7 @@ require 'config/mongo_settings'
 require 'config/crawler_settings'
 
 class KillYouSearch
-  @queue = :default
+  @queue = :atomicdisaster
 
   def self.perform
     search = Twitter::Search.new

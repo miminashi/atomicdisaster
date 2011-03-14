@@ -1,1 +1,1 @@
-COUNT=1 VVERBOSE=true QUEUE=default rake resque:workers
+COUNT=1 VVERBOSE=true QUEUE=atomicdisaster bundle exec rake resque:workers
