@@ -1,0 +1,5 @@
+killyoujobs_search:
+  cron: "* * * * *"
+  class: KillYouSearch
+  description: "Search Twitter status"
+

@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(/img/radioactive.png);
+  background-color: #DD0000;
+  color: #333333;
+  font: 0.75em 'Lucida Grande',sans-serif;
+  text-align: center;
+}
+
+#spacer-top {
+  height: 30px;
+}
+
+#container {
+  width: 768px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#header {
+  padding-left: 0.5em;
+  padding-top: 0.7em;
+  text-align: right;
+}
+
+#logo {
+  float: left;
+}
+
+.whitebox {
+  border: solid;
+  border-width: 2px;
+  background-color: #ffffff;
+}
+
+.top-navigation {
+    background-color: #FFFFFF;
+    display: inline-block;
+    padding: 0 0.7em;
+    white-space: nowrap;
+}
+
+.top-navigation * {
+    display: inline;
+}
+
+ol.statuses {
+  font-size: 14px;
+  list-style: none outside none;
+}
+
+.meta {
+    color: #999999;
+    display: block;
+    font-size: 11px;
+}
+
+.entry-meta {
+    margin-top: 2px;
+}
+
+.offscreen {
+    left: -9999px;
+    overflow: hidden;
+    position: absolute;
+}
+
+div.wrap-statuses {
+  /*
+  margin-left: 10px;
+  margin-right: 10px;
+  */
+}
+
+div.contents {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+div.static-contents {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12pt;
+}
+
+ol.statuses .thumb {
+    display: block;
+    height: 50px;
+    /* left: 0; */
+    margin: 0 10px 0 0;
+    overflow: hidden;
+    position: absolute;
+    width: 50px;
+    z-index: 10;
+}
+
+ol.statuses span.status-body {
+    display: block;
+    margin-left: 56px;
+    min-height: 48px;
+}
+
+ol.statuses li.status, ol.statuses li.direct_message {
+    border-bottom: 1px solid #EEEEEE;
+    line-height: 16px;
+    padding: 10px 0 8px;
+    position: relative;
+}
+
+#paginate-navibar {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+#footer {
+    background: none repeat scroll 0 0 #FFFFFF;
+    line-height: 1;
+    margin-top: 0.7em;
+    padding: 8px 0;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#footer li {
+    display: inline;
+    padding: 0 4px;
+}
+
+.first {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.clear {
+  clear: both;
+}

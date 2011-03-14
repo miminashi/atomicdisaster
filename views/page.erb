@@ -1,0 +1,39 @@
+<%#= render :collection => @tweets %>
+<div class="wrap-statuses contents">
+  <ol class="statuses" id="timeline">
+    <% @tweets.each do |t| %>
+      <li id="status_<%= t.t_id %>" class="hentry u-<%= t.from_user %> status">
+      <span class="thumb vcard author">
+        <a class="tweet-url profile-pic url" href="http://twitter.com/<%= t.from_user%>">
+          <img width="48" height="48" src="<%= t.profile_image_url %>" class="photo fn" alt="<%= t.from_user %>">
+        </a>
+      </span>
+      <span class="status-body">
+        <span class="status-content">
+          <strong>
+            <a class="tweet-url screen-name" href="http://twitter.com/<%= t.from_user %>"><%= t.from_user %></a>
+          </strong>
+          <span class="entry-content">
+            <%#  @<a rel="nofollow" href="/udon_tan" class="tweet-url username">udon_tan</a> ごはんはん %>
+            <%= t.text %>
+          </span>
+        </span>
+        <span data="{}" class="meta entry-meta">
+          <a href="http://twitter.com/<%= t.from_user %>/status/<%= t.t_id %>" rel="bookmark" class="entry-date">
+            <span data="<%= t.created_at %>" class="published timestamp">n分前</span>
+          </a>
+          <span><a rel="nofollow" href="http://twitter.com/">Twitter</a>から</span>
+          <%# <a href="http://twitter.com/udon_tan/status/39857677953671168">udon_tan宛</a> %>
+        </span>
+        <ul class="meta-data clearfix">
+        </ul>
+      </span>
+      </li>
+    <% end %>
+  </ol>
+</div>
+
+<div id="paginate-navibar">
+  <%= will_paginate @tweets %>
+</div>
+
